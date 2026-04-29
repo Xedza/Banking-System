@@ -1,3 +1,3 @@
 # Banking-System
 
-This is a test for the 
+This is to test a banking system.
