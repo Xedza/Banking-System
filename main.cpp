@@ -11,11 +11,12 @@ using namespace std;
 // < User Account System > //
 class user {
     public:
-        double balance;
+        double balance = 19.99;
         double creditscore;
         string password;
         string username;
         string userinput;
+        double mainbalance;
 };
 
 int mainselectorinpt;
@@ -46,6 +47,11 @@ user usr;
 // < Main INT > //
 
 int main() {
+    if (usr.balance <= -0.1) {
+        cout << "You have gone broke!";
+        wait15();
+        clear();
+    }
     cout << "Hello, user.\n";
     cout << "Welcome to the international < HAJEAIN BANKING SERVICES >\n";
     std::this_thread::sleep_for(std::chrono::seconds(2));
@@ -75,6 +81,7 @@ int main() {
     clear();
     wait2();
     usr.userinput = " ";
+    double inputmoney;
 
     cout << "[===================================================]\n";
     cout << "|           < Hajeain Banking Services >            |\n";
@@ -87,7 +94,7 @@ int main() {
     cout << "\n";
     cout << "[ 1. View Balance ]\n";
     cout << "[ 2. Withdraw Money ]\n";
-    cout << "[ 3. View credit score]\n";
+    cout << "[ 3. View credit score ]\n";
     cout << "[ 4. Shop ]\n";
     cout << "[ 5. Claim Paycheck ]\n";
 
@@ -99,6 +106,20 @@ int main() {
     if (mainselectorinpt == 1) {
         clear();
         cout << "Current Balance: " << usr.balance;
+    }
+    if (mainselectorinpt == 2) {
+        clear();
+        cout << "Please enter the amount of money you want to withdraw!\n";
+        cout << "> ";
+        cin >> inputmoney;
+        cout << "\n";
+        
+        usr.mainbalance = usr.mainbalance = inputmoney;
+        usr.balance = inputmoney - usr.balance;
+
+        cout << "\n";
+        cout << "Current money withdrawed: " << inputmoney;
+        cout << "\nCurrent Cash: " << usr.balance;
     }
     if (mainselectorinpt == 5) {
         clear();
